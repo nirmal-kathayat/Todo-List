@@ -1,0 +1,574 @@
+:root {
+  --primary: #ea40a4;
+  --business: #3a82ee;
+  --personal: var(--primary);
+  --light: #eee;
+  --grey: #888;
+  --dark: #313154;
+  --danger: #ff5b57;
+
+  --shadow: 0 1px 3px rgba(14, 64, 144, 0.1);
+
+  --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+body {
+  /* background-image: url(""); */
+  /* background-repeat: none;
+   */
+  background: rgb(63, 251, 214);
+  background: radial-gradient(
+    circle,
+    rgba(63, 251, 214, 1) 9%,
+    rgba(155, 70, 252, 1) 100%
+  );
+  /* background-image: url("assets/images/todo.jpg"); */
+}
+main {
+  padding-left: 8rem;
+}
+
+.navbar {
+  background-color: rgba(155, 70, 252, 1);
+  border-radius: 4px;
+  border: 2px solid #c8a7b3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  margin: 1px;
+}
+
+.navbar .apps {
+  font-size: 8vh;
+  margin-left: 4rem;
+  color: rgb(132, 22, 130);
+  /* text-align: center; */
+}
+.navbar ul {
+  overflow: auto;
+  padding: 3px 3px;
+}
+
+.navbar li {
+  float: left;
+  list-style: none;
+  margin: 35px 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.navbar li a {
+  /* float: left; */
+  list-style: none;
+  /* margin: 35px 20px; */
+  font-size: 1.5rem;
+  padding-right: 15rem;
+  text-decoration: none;
+  color: #2b106c;
+}
+.app-todo {
+  /* width: 45%; */
+  margin: 1rem auto;
+  padding-right: 28rem;
+  color: #8fc734;
+  /* box-shadow: -8px 13px 80px 50px rgba(24, 17, 146, 0.166); */
+  /* font-size: 3.5rem; */
+}
+
+.app {
+  width: 45%;
+  margin: 1rem auto;
+  padding: 42px;
+  box-shadow: -8px 13px 80px 50px rgba(24, 17, 146, 0.166);
+}
+.date-todo {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  /* Add any other styles as per your requirements */
+}
+
+/* #currentDate {
+  font-weight: bold;
+  /* Add any other styles as per your requirements */
+/* position: absolute; */
+/* bottom: 10px; */
+/* left: 10px;
+  color: #110b0b;
+  top: 8rem;
+  font-size: 35px;
+  padding: 5rem;
+  font-family: "Titillium Web", sans-serif;
+} */
+
+.icon-button {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  padding-right: 4rem;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
+
+.icon-button:active {
+  background: #cccccc;
+}
+
+/* #currentDate {
+  margin-left: 2rem;
+  font-size: 25px;
+} */
+
+.create-todo {
+  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.todo-list {
+  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+  font-size: 1.5rem;
+}
+/* .greeting input[type="txt"] {
+  font-size: 1.5rem;
+  color: #191b19;
+  margin-left: -9rem;
+  padding-bottom: 1rem;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+} */
+
+.container {
+  /* background: var(--light); */
+  /* background-image: url("https://wallpaperaccess.com/full/2662155.jpg"); */
+  color: var(--dark);
+  max-width: 100%;
+  height: 50rem;
+}
+
+section {
+  margin-top: 5rem;
+  margin-bottom: -2rem;
+  padding-left: 20rem;
+  padding-right: 28rem;
+}
+.greeting h1 {
+  margin-left: -25rem;
+  font-size: 2rem;
+  color: #160b0b;
+  padding: 0rem;
+  padding-top: -4rem;
+  margin-top: -4rem;
+}
+
+.create-todo h3 {
+  color: rgb(6, 6, 14);
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .new-todo-form h4 {
+  font-family: "Roboto", sans-serif, "arial";
+  font-weight: 400;
+  font-size: 20px;
+  color: #0a0808;
+  line-height: 1.5;
+}
+h2 {
+  margin-top: 5rem;
+  /* margin-left: 1rem; */
+}
+
+.greeting .title {
+  display: flex;
+  /* margin-top: 5rem; */
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.greeting .title,
+.greeting .title input {
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.create-todo input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: #0e0811;
+  background-color: #31ca8f;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2.5rem;
+}
+
+input[type="date"],
+input[type="time"] {
+  color: gray;
+}
+.create-todo .options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.create-todo .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1ca4ce;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid black;
+  box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+  border-color: #93671b;
+  box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: black;
+  box-shadow: var(--business-glow);
+  border-radius: 999px;
+  transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+  background-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.create-todo .options label div {
+  color: var(--dark);
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: #160b0b;
+  font-weight: 700;
+
+  background-color: #1d9191;
+  box-shadow: var(--personal-glow);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.create-todo input[type="submit"]:hover {
+  opacity: 2;
+  background-color: #a13a2d;
+}
+
+.todo-list .list {
+  margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.todo-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-item .todo-content {
+  flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: #1d0606;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+  opacity: 1.75;
+  background-color: #0b56c7;
+}
+
+.todo-item .actions .edit {
+  margin-right: 0.5rem;
+  background-color: rgb(202, 157, 8);
+}
+
+.todo-item .actions .delete {
+  background-color: rgb(21, 202, 196);
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+/* banner style start */
+.banner-video {
+  max-height: 0%;
+}
+.banner-body {
+  text-align: center;
+  transform: translate(0px, -500px);
+}
+
+.banner-title {
+  text-align: center;
+}
+.banner-title {
+  padding: 24px;
+  font-size: 2rem;
+}
+/* banner style end */
+
+/* contact style start */
+.contact-form {
+  background-color: #444442;
+  padding-top: 85px;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif, "arial";
+  font-weight: 600;
+  font-size: 72px;
+  color: white;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif, "arial";
+  font-weight: 400;
+  font-size: 20px;
+  /* color: #9b9b9b; */
+  color: #160808;
+  line-height: 1.5;
+}
+
+/* ///// inputs /////*/
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:valid ~ label,
+textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #999;
+  top: -5px;
+  -webkit-transition: all 0.225s ease;
+  transition: all 0.225s ease;
+}
+
+.styled-input {
+  float: left;
+  width: 293px;
+  margin: 1rem 0;
+  position: relative;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .styled-input {
+    width: 100%;
+  }
+}
+
+.styled-input label {
+  color: #999;
+  padding: 1.3rem 30px 1rem 30px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.styled-input.wide {
+  width: 650px;
+  max-width: 100%;
+}
+
+input,
+textarea {
+  padding: 30px;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #2d2d2d;
+  color: white;
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input:focus ~ span,
+textarea:focus ~ span {
+  width: 100%;
+  -webkit-transition: all 0.075s ease;
+  transition: all 0.075s ease;
+}
+
+textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+.input-container {
+  width: 650px;
+  max-width: 100%;
+  margin: 20px auto 25px auto;
+}
+
+.submit-btn {
+  float: right;
+  padding: 7px 35px;
+  border-radius: 60px;
+  display: inline-block;
+  background-color: #4b8cfb;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.07);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(1px);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.09);
+}
+
+@media (max-width: 768px) {
+  .submit-btn {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+}
+
+input[type="checkbox"] + label {
+  color: #ccc;
+  font-style: italic;
+}
+
+input[type="checkbox"]:checked + label {
+  color: #f00;
+  font-style: normal;
+}
+/* contact style end */
+/* footer style start */
+footer {
+  /* margin-top: 3.4rem; */
+  background-color: #9745b1;
+  padding: 40px;
+
+  text-align: center;
+}
+
+.copyright {
+  max-width: 1200px;
+  margin: 0;
+}
+
+footer .copyright-text {
+  font-size: 15px;
+  color: #fff;
+  margin: 0;
+  margin-right: -150px;
+  text-align: center;
+  align-items: center;
+}
+/* footer style end */
