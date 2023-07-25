@@ -1,4 +1,4 @@
-//creating database of table:todos 
+//creating database of table:todos   for website
 //database name : login_db
 
 CREATE TABLE todos(
@@ -7,5 +7,16 @@ CREATE TABLE todos(
 	status int(3) NULL,
 	datetime(5)
 );
+
+//creating table for signup system: user
+
+CREATE TABLE user(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(250) ,
+	email VARCHAR(255) ,
+	password_hash VARCHAR(255)	
+);
+
+
 
 
