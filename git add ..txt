@@ -1,0 +1,21 @@
+git add .
+git commit -m "comment"
+git pull origin dev
+git push origin dev
+
+
+postman route controller repo backt to controller with response controller response return
+psr
+
+//flow for api 
+new model with controller
+//for controller
+/api/controllername
+
+migration table
+repository ma januparyo
+request ma januparyo
+
+
+
+
