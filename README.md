@@ -1,4 +1,4 @@
-Todo Project
+
 Todo-List is the minor project which is assigned by college.
 This is my first Project which contains many task maintaining 
 features. Users can add,update,delete,their daily tasks.
