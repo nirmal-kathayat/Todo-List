@@ -85,21 +85,7 @@ main {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: #333;
-  /* Add any other styles as per your requirements */
 }
-
-/* #currentDate {
-  font-weight: bold;
-  /* Add any other styles as per your requirements */
-/* position: absolute; */
-/* bottom: 10px; */
-/* left: 10px;
-  color: #110b0b;
-  top: 8rem;
-  font-size: 35px;
-  padding: 5rem;
-  font-family: "Titillium Web", sans-serif;
-} */
 
 .icon-button {
   font-family: "Material Icons";
@@ -124,19 +110,12 @@ main {
   background: #cccccc;
 }
 
-/* #currentDate {
-  margin-left: 2rem;
-  font-size: 25px;
-} */
-
 .create-todo {
-  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
   padding: 20px;
   margin-top: 20px;
 }
 
 .todo-list {
-  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
   padding: 20px;
   margin-top: 20px;
 }

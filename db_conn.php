@@ -1,15 +1,13 @@
 <?php
-// Assuming the form data is submitted via POST method
-// print_r($_POST);
 
 $host = "localhost";
 $dbname = "login_db";
 $username = "root";
 $password = "";
-//connection with sql
+//connection with mysql
 $db = new mysqli($host, $username, $password, $dbname);
 
-//check the connection
+//checking the connection
 if ($db->connect_error) {
-          die("Connection failed: " . $db->connect_error);
+      die("Connection failed: " . $db->connect_error);
 }

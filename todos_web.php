@@ -17,64 +17,64 @@ include('db_conn.php');
       <link rel="stylesheet" href="./css/main.css">
 
       <style>
-            /* navbar */
+      /* navbar */
 
-            .nav-todo {
-                  background-color: #338ae2;
-                  padding: 10px 16px;
-                  position: fixed;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  z-index: 9999;
-                  height: 15%;
-            }
+      .nav-todo {
+            background-color: #338ae2;
+            padding: 10px 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            height: 15%;
+      }
 
-            .container-icon {
-                  margin-left: 75rem;
-                  margin-top: -2rem;
-            }
+      .container-icon {
+            margin-left: 75rem;
+            margin-top: -2rem;
+      }
 
 
 
-            .navbar-todos {
-                  font-size: 24px;
-                  font-weight: bold;
-                  color: white;
-                  text-decoration: none;
-                  font-size: 50px;
-                  margin: 5rem;
-                  margin-left: 16rem;
-                  padding: 8rem;
-            }
+      .navbar-todos {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            font-size: 50px;
+            margin: 5rem;
+            margin-left: 16rem;
+            padding: 8rem;
+      }
 
-            .make-todo {
-                  font-size: 2.5rem;
-                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                  color: chartreuse;
-                  margin-left: 1rem;
+      .make-todo {
+            font-size: 2.5rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: chartreuse;
+            margin-left: 1rem;
 
-            }
+      }
 
-            /* styling alert message*/
-            .alert {
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid transparent;
-                  border-radius: 4px;
-            }
+      /* styling alert message*/
+      .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+      }
 
-            .alert-danger {
-                  color: #721c24;
-                  background-color: #f8d7da;
-                  border-color: #f5c6cb;
-            }
+      .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+      }
 
-            .alert-success {
-                  color: #155724;
-                  background-color: #d4edda;
-                  border-color: #c3e6cb;
-            }
+      .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+      }
       </style>
 </head>
 
@@ -89,7 +89,8 @@ include('db_conn.php');
             <div class="container-icon">
                   <button type="button" class="btn btn-primary position-relative m-3">
                         <i class="fa fa-bell" aria-hidden="true"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="counter">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                              id="counter">
                               <span id="output" class="badge rounded-pill bg-success"></span>
                         </span>
                         <?php
@@ -97,8 +98,6 @@ include('db_conn.php');
                         $sql = "SELECT COUNT(*) AS count FROM todos WHERE status = 'Pending'";
                         $result = mysqli_query($db, $sql);
                         $count = mysqli_fetch_assoc($result)['count'];
-
-
                         echo $count;
                         ?>
                   </button>
@@ -117,10 +116,10 @@ include('db_conn.php');
 
                               <?php if (!empty($_GET['success'])) echo "  " . $_GET['success']; ?>
                               <script>
-                                    const timer = 3000;
-                                    setTimeout(function() {
-                                          $('.alert').slideUp();
-                                    }, timer);
+                              const timer = 3000;
+                              setTimeout(function() {
+                                    $('.alert').slideUp();
+                              }, timer);
                               </script>
 
 
@@ -152,9 +151,11 @@ include('db_conn.php');
                                     Edit Todo</button>
                               <button name="action" value="delete" class="btn btn-danger"><i class="fa fa-times"></i>
                                     Delete Todo</button>
-                              <button name="action" value="complete" class="btn btn-purple"><i class="fa fa-thumbs-up"></i> Mark
+                              <button name="action" value="complete" class="btn btn-purple"><i
+                                          class="fa fa-thumbs-up"></i> Mark
                                     Complete</button>
-                              <button name="action" value="pending" class="btn btn-orange"><i class="fa fa-thumbs-down"></i> Mark
+                              <button name="action" value="pending" class="btn btn-orange"><i
+                                          class="fa fa-thumbs-down"></i> Mark
                                     Pending</button>
                         </div>
 
@@ -171,17 +172,18 @@ include('db_conn.php');
                                     <?php
                                     foreach ($todos as $todo) {
                                     ?>
-                                          <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
-                                                <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id=""></td>
-                                                <td><?php echo $todo[1]; ?></td>
-                                                <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
-                                                </td>
+                                    <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
+                                          <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>"
+                                                      id=""></td>
+                                          <td><?php echo $todo[1]; ?></td>
+                                          <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
+                                          </td>
 
-                                                <td><?php echo $todo[3]; ?>
+                                          <td><?php echo $todo[3]; ?>
 
-                                                </td>
+                                          </td>
 
-                                          </tr>
+                                    </tr>
                                     <?php } ?>
 
                               </tbody>
@@ -190,26 +192,7 @@ include('db_conn.php');
             </form>
       </div>
 </body>
-<script>
-      $(document).ready(function() {
-            // Function to update the notification count
-            function updateNotificationCount() {
-                  $.ajax({
-                        url: 'notification_count.php',
-                        method: 'GET',
-                        success: function(response) {
-                              $('#output').text(response);
-                        }
-                  });
-            }
 
-            // Call the updateNotificationCount function initially
-            updateNotificationCount();
-
-            // Refresh the notification count every few seconds
-            setInterval(updateNotificationCount, 3000); // Update every 5 seconds
-      });
-</script>
 
 
 </html>

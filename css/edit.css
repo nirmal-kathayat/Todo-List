@@ -18,7 +18,7 @@ body {
 .navbar-brand {
   color: white;
   font-size: 2rem;
-  margin-left: 32rem;
+  margin-left: 2rem;
 }
 
 .navbar-brand:hover {
@@ -39,24 +39,56 @@ body {
 
 hr {
   color: black;
-  /* font-size: 1.5rem; */
 }
 
 label {
   font-size: 1.5rem;
-  /* margin: 0.5rem; */
 }
 
-.main-title {
-  width: 32rem;
-  height: 3.2rem;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
+.main-title,
 .date-time {
-  width: 32rem;
+  width: 100%;
   height: 3.2rem;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .navbar-brand {
+    margin-left: 1rem;
+  }
+  .todo-table {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  .todo-table {
+    width: 80%;
+    margin-left: 10%;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+  }
+  .navbar-brand {
+    margin-left: 1rem;
+  }
+  .todo-table {
+    width: 90%;
+    margin-left: 5%;
+    padding: 20px;
+    margin-top: 3rem;
+  }
 }

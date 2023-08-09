@@ -17,7 +17,7 @@
 <body>
       <nav class="navbar">
             <div class="container">
-                  <a class="navbar-brand" href="#">TODO-LIST</a>
+                  <h1 class="navbar-brand">TODO-LIST</h1>
                   <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="./logout.php">Logout</a></li>
 

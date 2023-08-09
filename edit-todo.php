@@ -27,7 +27,7 @@ $data = mysqli_fetch_assoc($result);
 <body>
       <nav class="navbar">
             <div class="container">
-                  <a class="navbar-brand" href="#">TODO-LIST</a>
+                  <h1 class="navbar-brand">TODO-LIST</h1>
             </div>
       </nav>
 
