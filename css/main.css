@@ -4,15 +4,6 @@
 }
 
 body {
-  background: linear-gradient(
-    63.18deg,
-    #472f9f 0%,
-    #0070e4 29.69%,
-    #009fdf 50.52%,
-    #00c592 73.96%,
-    #4ee000 100%
-  );
-
   height: 100vh;
 
   font-family: "Roboto", sans-serif;
@@ -262,12 +253,11 @@ body {
 .btn {
   margin-top: 0.2em;
   padding: 0.5em 1em;
-
   outline: none;
   cursor: pointer;
   text-decoration: none;
   border-radius: 200px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border: none;
 }
 

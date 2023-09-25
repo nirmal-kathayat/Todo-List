@@ -1,3 +1,19 @@
+<?php
+include 'db_conn.php';
+session_start();
+
+if (isset($_SESSION['error'])) {
+      $error = $_SESSION['error'];
+      $titleErr = $_SESSION['titleErr'];
+      $datetimeErr = $_SESSION['datetimeErr'];
+      unset($_SESSION['error']);
+      unset($_SESSION['titleErr']);
+      unset($_SESSION['datetimeErr']);
+}
+
+// Rest of your HTML and PHP code for the add-todo.php page
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,11 +54,28 @@
                         <hr />
                         <div class="form-elements">
                               <label for="title-id">Todo Title:</label> <br>
-                              <input type="text" name="title" class="main-title" id="title-id" required placeholder="Add your Todo...">
-                        </div>
+                              <input type="text" name="title" class="main-title" id="title-id" placeholder="Add your Todo...">
+                              <?php
+                              if (isset($titleErr) && !empty($titleErr)) {
+                                    echo '<span class="error">' . $titleErr . '</span>';
+                              }
+                              ?>
+
+
+                        </div><br>
+                        <label for="message"> Description:</label><br>
+                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter the description here..."></textarea> <br>
+
                         <label for="datetime">Date Time:</label><br>
                         <input type="hidden" name="action" value="add">
-                        <input type="datetime-local" id="datetime" name="datetime" class="date-time" value="<?php echo $datetime; ?>" required>
+                        <input type="datetime-local" id="datetime" name="datetime" class="date-time" value="<?php echo $datetime; ?>">
+
+                        <?php
+                        if (isset($titleErr) && !empty($titleErr)) {
+                              echo '<span class="error">' . $datetimeErr . '</span>';
+                        }
+                        ?>
+
 
                         <br>
                         <br>

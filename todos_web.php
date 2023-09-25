@@ -16,65 +16,89 @@ include('db_conn.php');
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <link rel="stylesheet" href="./css/main.css">
 
+
       <style>
-      /* navbar */
+            /* navbar */
 
-      .nav-todo {
-            background-color: #338ae2;
-            padding: 10px 16px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            height: 15%;
-      }
+            .nav-todo {
+                  background-color: black;
+                  padding: 10px 16px;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  z-index: 9999;
+                  height: 12%;
+            }
 
-      .container-icon {
-            margin-left: 75rem;
-            margin-top: -2rem;
-      }
+            .container-icon {
+                  margin-left: 75rem;
+                  margin-top: -2rem;
+            }
 
 
 
-      .navbar-todos {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            font-size: 50px;
-            margin: 5rem;
-            margin-left: 16rem;
-            padding: 8rem;
-      }
+            .navbar-todos {
+                  font-size: 24px;
+                  font-weight: bold;
+                  color: white;
+                  text-decoration: none;
+                  font-size: 50px;
+                  margin: 5rem;
+                  margin-left: 16rem;
+                  padding: 8rem;
+            }
 
-      .make-todo {
-            font-size: 2.5rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: chartreuse;
-            margin-left: 1rem;
+            .make-todo {
+                  font-size: 2.5rem;
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                  color: chartreuse;
+                  margin-left: 1rem;
 
-      }
+            }
 
-      /* styling alert message*/
-      .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-      }
+            /* styling alert message*/
+            .alert {
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  border: 1px solid transparent;
+                  border-radius: 4px;
+            }
 
-      .alert-danger {
-            color: #721c24;
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-      }
+            .alert-danger {
+                  color: #721c24;
+                  background-color: #f8d7da;
+                  border-color: #f5c6cb;
+            }
 
-      .alert-success {
-            color: #155724;
-            background-color: #d4edda;
-            border-color: #c3e6cb;
-      }
+            .alert-success {
+                  color: #155724;
+                  background-color: #d4edda;
+                  border-color: #c3e6cb;
+            }
+
+            /* history log */
+            .history {
+                  background-color: #007bff;
+                  color: white;
+                  border: none;
+                  padding: 10px 20px;
+                  text-decoration: none;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  margin-right: 10px;
+                  margin-left: 0.4rem;
+
+                  font-family: "Roboto", sans-serif;
+            }
+
+            /* Hover effect for the button */
+            .history:hover {
+                  background-color: #0056b3;
+                  /* Darker blue on hover */
+                  color: white;
+                  /* Text color remains white on hover */
+            }
       </style>
 </head>
 
@@ -89,12 +113,27 @@ include('db_conn.php');
             <div class="container-icon">
                   <button type="button" class="btn btn-primary position-relative m-3">
                         <i class="fa fa-bell" aria-hidden="true"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                              id="counter">
-                              <span id="output" class="badge rounded-pill bg-success"></span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="counter">
+                              <span id="output" class="badge rounded-pill bg-success">
+
+                                    <?php
+
+                                    $sqlNotifications = 'SELECT  message FROM notifications';
+                                    $result = $db->query($sqlNotifications);
+
+                                    if ($result->num_rows > 0) {
+                                          while ($row = $result->fetch_assoc()) {
+                                                echo  "- Message: " . $row["message"] . "<br>";
+                                          }
+                                    } else {
+                                          echo '0';
+                                    }
+
+                                    // mysqli_close($conn);
+                                    ?>
+                              </span>
                         </span>
                         <?php
-
                         $sql = "SELECT COUNT(*) AS count FROM todos WHERE status = 'Pending'";
                         $result = mysqli_query($db, $sql);
                         $count = mysqli_fetch_assoc($result)['count'];
@@ -116,16 +155,15 @@ include('db_conn.php');
 
                               <?php if (!empty($_GET['success'])) echo "  " . $_GET['success']; ?>
                               <script>
-                              const timer = 3000;
-                              setTimeout(function() {
-                                    $('.alert').slideUp();
-                              }, timer);
+                                    const timer = 2000;
+                                    setTimeout(function() {
+                                          $('.alert').slideUp();
+                                    }, timer);
                               </script>
 
-
-
                         </div>
-                        <h1>My Todo's</h1>
+
+                        <h1>Lists Of Tasks</h1>
                         <h6><?php
                               $sql = "SELECT * FROM todos";
                               $result = mysqli_query($db, $sql);
@@ -145,18 +183,20 @@ include('db_conn.php');
 
                               ?>
                         </h6>
+
                         <div class="btn-holder">
                               <a href="add-todo.php" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Todo</a>
                               <button name="action" value="edit" class="btn btn-secondary"><i class="fa fa-edit"></i>
                                     Edit Todo</button>
                               <button name="action" value="delete" class="btn btn-danger"><i class="fa fa-times"></i>
                                     Delete Todo</button>
-                              <button name="action" value="complete" class="btn btn-purple"><i
-                                          class="fa fa-thumbs-up"></i> Mark
+                              <button name="action" value="complete" class="btn btn-purple"><i class="fa fa-thumbs-up"></i> Mark
                                     Complete</button>
-                              <button name="action" value="pending" class="btn btn-orange"><i
-                                          class="fa fa-thumbs-down"></i> Mark
+                              <button name="action" value="pending" class="btn btn-orange"><i class="fa fa-thumbs-down"></i> Mark
                                     Pending</button>
+
+                              <a href="todo_history.php" class="history"><i class="fa fa-history"></i> History
+                                    Log</a>
                         </div>
 
                         <table>
@@ -172,23 +212,23 @@ include('db_conn.php');
                                     <?php
                                     foreach ($todos as $todo) {
                                     ?>
-                                    <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
-                                          <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>"
-                                                      id=""></td>
-                                          <td><?php echo $todo[1]; ?></td>
-                                          <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
-                                          </td>
+                                          <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
+                                                <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id=""></td>
+                                                <td><?php echo $todo[1]; ?></td>
+                                                <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
+                                                </td>
 
-                                          <td><?php echo $todo[3]; ?>
+                                                <td><?php echo $todo[3]; ?>
 
-                                          </td>
+                                                </td>
 
-                                    </tr>
+                                          </tr>
                                     <?php } ?>
 
                               </tbody>
                         </table>
                   </div>
+
             </form>
       </div>
 </body>

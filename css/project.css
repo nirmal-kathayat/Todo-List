@@ -9,6 +9,15 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
+.error {
+  color: red;
+  font-size: 1.2rem;
+}
+
+#message {
+  width: 100%;
+}
+
 .navbar {
   background-color: black;
   height: 6rem;
@@ -37,8 +46,8 @@ body {
   padding: 35px;
   border: 2px solid greenyellow;
   width: 50%;
-  height: 28rem;
-  margin-top: 5rem;
+  height: 42rem;
+  margin-top: 2.5rem;
   background-color: greenyellow;
   border-radius: 10px;
   margin-left: 16rem;

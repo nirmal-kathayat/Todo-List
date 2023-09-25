@@ -54,20 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <em style="color:red;">Invalid login</em>
     <?php endif; ?>
 
-    <!-- <div class="container">
-            <div class="content">
-                <label for="email">email</label>
-                <input type="email" name="email" id="email" value="">
 
-
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-                <i class="fa-regular fa-eye"></i>
-
-
-                <button>Log in</button>
-            </div>
-        </div> -->
 
     <div class="container">
         <div class="forms">
