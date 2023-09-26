@@ -58,8 +58,9 @@ if (isset($_POST['action'])) {
                   }
 
                   if ($result !== false) {
-
-                        header('Location: todos_web.php?success=New Todo Added Successfully!');
+                        echo "<script>alert('New Todo Added Successfully!');</script>";
+                        // header('Location: todos_web.php?success=New Todo Added Successfully!');
+                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
                   // After the INSERT INTO todos query, add the following code to log the action
@@ -85,14 +86,16 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-
-                        header('Location: todos_web.php?success=Todo Deleted Successfully!');
+                        echo "<script>confirm('Are you sure to delete?');</script>";
+                        // header('Location: todos_web.php?success=Todo Deleted Successfully!');
+                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
                   break;
 
             case 'complete':
 
                   if (empty($_POST['todo'])) {
+
                         header('Location: todos_web.php?error=Select atleast one todo');
                   }
 
@@ -101,8 +104,9 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-
-                        header('Location: todos_web.php?success=Todo Marked Completed!');
+                        echo "<script>alert('Todo Marked Completed!');</script>";
+                        // header('Location: todos_web.php?success=Todo Marked Completed!');
+                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
                   // After the UPDATE todos query for marking as complete or pending, add the following code to log the action
                   if ($result !== false) {
@@ -128,8 +132,9 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-
-                        header('Location: todos_web.php?success=Todo Task Pending!');
+                        echo "<script> alert('Task is Pending!');</script>";
+                        // header('Location: todos_web.php?success=Todo Task Pending!');
+                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
                   break;
@@ -145,8 +150,9 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-
-                        header('Location: todos_web.php?success=Todo Updated Successfully!');
+                        echo "<script>alert('Task is Updated successfully!');</script>";
+                        // header('Location: todos_web.php?success=Todo Updated Successfully!');
+                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
                   // After the UPDATE todos query for editing, add the following code to log the action

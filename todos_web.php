@@ -1,9 +1,11 @@
 <?php
-
-
-
+session_start();
 include('db_conn.php');
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,92 +16,8 @@ include('db_conn.php');
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <link rel="stylesheet" href="./css/main.css">
+      <link rel="stylesheet" href="./css/styleIndex.css">
 
-
-      <style>
-            /* navbar */
-
-            .nav-todo {
-                  background-color: black;
-                  padding: 10px 16px;
-                  position: fixed;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  z-index: 9999;
-                  height: 12%;
-            }
-
-            .container-icon {
-                  margin-left: 75rem;
-                  margin-top: -2rem;
-            }
-
-
-
-            .navbar-todos {
-                  font-size: 24px;
-                  font-weight: bold;
-                  color: white;
-                  text-decoration: none;
-                  font-size: 50px;
-                  margin: 5rem;
-                  margin-left: 16rem;
-                  padding: 8rem;
-            }
-
-            .make-todo {
-                  font-size: 2.5rem;
-                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                  color: chartreuse;
-                  margin-left: 1rem;
-
-            }
-
-            /* styling alert message*/
-            .alert {
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid transparent;
-                  border-radius: 4px;
-            }
-
-            .alert-danger {
-                  color: #721c24;
-                  background-color: #f8d7da;
-                  border-color: #f5c6cb;
-            }
-
-            .alert-success {
-                  color: #155724;
-                  background-color: #d4edda;
-                  border-color: #c3e6cb;
-            }
-
-            /* history log */
-            .history {
-                  background-color: #007bff;
-                  color: white;
-                  border: none;
-                  padding: 10px 20px;
-                  text-decoration: none;
-                  border-radius: 5px;
-                  font-size: 16px;
-                  margin-right: 10px;
-                  margin-left: 0.4rem;
-
-                  font-family: "Roboto", sans-serif;
-            }
-
-            /* Hover effect for the button */
-            .history:hover {
-                  background-color: #0056b3;
-                  /* Darker blue on hover */
-                  color: white;
-                  /* Text color remains white on hover */
-            }
-      </style>
 </head>
 
 <body>
@@ -107,7 +25,7 @@ include('db_conn.php');
 
       <nav class="nav-todo">
             <div class="content">
-                  <a class="navbar-todos" href="#"> Task Lists</a>
+                  <h2 class="list-wrapper">Task Lists</h2>
 
             </div>
             <div class="container-icon">
@@ -148,20 +66,6 @@ include('db_conn.php');
       <div class="container">
             <form action="process.php" method="POST">
                   <div class="todo-table">
-                        <div class="alert alert-success alert-block" role="alert">
-
-                              <?php if (!empty($_GET['error'])) echo "  " . $_GET['error']; ?>
-
-
-                              <?php if (!empty($_GET['success'])) echo "  " . $_GET['success']; ?>
-                              <script>
-                                    const timer = 2000;
-                                    setTimeout(function() {
-                                          $('.alert').slideUp();
-                                    }, timer);
-                              </script>
-
-                        </div>
 
                         <h1>Lists Of Tasks</h1>
                         <h6><?php
@@ -232,7 +136,5 @@ include('db_conn.php');
             </form>
       </div>
 </body>
-
-
 
 </html>

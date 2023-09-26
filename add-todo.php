@@ -11,7 +11,6 @@ if (isset($_SESSION['error'])) {
       unset($_SESSION['datetimeErr']);
 }
 
-// Rest of your HTML and PHP code for the add-todo.php page
 ?>
 
 <!DOCTYPE html>

@@ -23,30 +23,34 @@ if ($conn->connect_error) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Todo Item History</title>
       <link rel="stylesheet" href="./css/history.css">
+
 </head>
 
 <body>
+
+
+      <div class="navbar">
+            <h2>History Logs</h2>
+            <a href="todos_web.php" class="history-icon"></i> Back</a>
+      </div>
       <?php
-
-
       $sql = "SELECT * FROM todo_history";
       $result = $conn->query($sql);
-
       if ($result->num_rows > 0) {
             echo '<h1>Todo Item History</h1>';
             echo '<table>';
             echo '<tr>
                   <th>Todo ID</th>
-                  <th>Action</th>
                   <th>Title</th>
+                  <th>Action</th>
                   <th>Datetime</th>
                   <th>Timestamp</th>
                   </tr>';
             while ($row = $result->fetch_assoc()) {
                   echo '<tr>';
                   echo '<td>' . $row["todo_id"] . '</td>';
-                  echo '<td>' . $row["action"] . '</td>';
                   echo '<td>' . $row["title"] . '</td>';
+                  echo '<td>' . $row["action"] . '</td>';
                   echo '<td>' . $row["datetime"] . '</td>';
                   echo '<td>' . $row["timestamp"] . '</td>';
                   echo '</tr>';

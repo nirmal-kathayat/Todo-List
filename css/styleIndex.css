@@ -5,67 +5,105 @@
 
 body {
   height: 100vh;
-
   font-family: "Roboto", sans-serif;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/004/933/879/non_2x/red-marking-on-checklist-box-checklist-concept-copy-space-business-presentation-background-vector.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* navbar */
 
-.navbar {
-  background-color: #6f93ef;
-  padding: 15px 0;
+.nav-todo {
+  background-color: #42a2c0;
+  padding: 10px 16px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
-  height: 20%;
+  height: 12%;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.list-wrapper {
+  color: white;
+  margin-left: 10rem;
+  margin-top: 0.5rem;
+  font-size: 2rem;
 }
 
-.navbar-brand {
+.container-icon {
+  margin-left: 75rem;
+  margin-top: -2rem;
+}
+
+.navbar-todos {
   font-size: 24px;
   font-weight: bold;
-  color: #142a6d;
+  color: white;
   text-decoration: none;
   font-size: 50px;
+  /* margin: 5rem; */
+  margin-left: 16rem;
+  /* padding: 8rem; */
 }
 
-.navbar-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.make-todo {
+  font-size: 2.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: chartreuse;
+  margin-left: 1rem;
 }
 
-.nav-item {
-  display: inline-block;
-  margin-right: 20px;
+/* styling alert message*/
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
-.nav-link {
-  font-size: 16px;
-  color: #142a6d;
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* history log */
+.history {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   text-decoration: none;
-  font-size: 32px;
+  border-radius: 5px;
+  font-size: 16px;
+  /* margin-right: 10px; */
+  /* margin-left: 0.4rem; */
+
+  font-family: "Roboto", sans-serif;
 }
 
-.nav-link:hover {
-  color: #c5073a;
+.history:hover {
+  background-color: #0056b3;
+  color: white;
 }
 
 .todo-form,
 .todo-table {
-  background: rgba(255, 255, 255, 0.51);
+  background: rgb(55 224 12 / 80%);
   border-radius: 10px;
   padding: 3em;
   margin: 10.5rem;
   position: relative;
   width: 120vh;
+  margin-left: 18.8rem;
 }
 
 .todo-form input {
@@ -122,6 +160,7 @@ body {
   width: 100%;
   background-color: white;
   border-radius: 10px;
+  margin-top: 2.2rem;
 }
 
 .todo-table thead tr {
@@ -151,7 +190,7 @@ body {
 .todo-table tbody tr {
   font-family: Inter;
   font-style: normal;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 18px;
   height: 40px;
 }

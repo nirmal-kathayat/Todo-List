@@ -3,22 +3,60 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: 88%;
   border-collapse: collapse;
-  margin: 20px auto;
+  margin: 80px auto;
+  background-color: #84aeaf;
 }
 
 th,
 td {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #100f0f;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #329092;
 }
 
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: #a4cad3;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #42a2c0;
+  color: #fff;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.navbar h2 {
+  margin: 0 90px;
+  font-size: 2rem;
+}
+
+.history-icon {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #0d34cc;
+  color: #f5f6f7;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-right: 100px;
+  font-size: 1.1rem;
+}
+
+/* Hover effect for the button */
+.history-icon:hover {
+  background-color: #3069e4;
+  /* color: #3661e2; */
 }
