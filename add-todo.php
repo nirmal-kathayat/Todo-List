@@ -25,7 +25,7 @@ if (isset($_SESSION['error'])) {
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 
-      <link rel="stylesheet" href="./css/project.css">
+      <link rel="stylesheet" href="./css/styleProject.css">
 
 </head>
 
@@ -39,8 +39,6 @@ if (isset($_SESSION['error'])) {
                   </ul>
             </div>
       </nav>
-
-
 
 
       <div class="container">
@@ -59,7 +57,6 @@ if (isset($_SESSION['error'])) {
                                     echo '<span class="error">' . $titleErr . '</span>';
                               }
                               ?>
-
 
                         </div><br>
                         <label for="message"> Description:</label><br>

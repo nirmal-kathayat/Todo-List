@@ -6,7 +6,7 @@
 body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/004/933/879/non_2x/red-marking-on-checklist-box-checklist-concept-copy-space-business-presentation-background-vector.jpg");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/004/697/688/original/curve-light-blue-background-abstract-free-vector.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -35,6 +35,23 @@ body {
 .container-icon {
   margin-left: 75rem;
   margin-top: -2rem;
+}
+
+/* notification pills */
+
+#counter {
+  background-color: #104b61;
+  color: #fff;
+  padding: 12px 34px;
+  position: absolute;
+  font-size: 17px;
+  margin-top: 2.4rem;
+  border-radius: 10px;
+}
+
+#output {
+  color: #fff;
+  margin-bottom: 5px;
 }
 
 .navbar-todos {
@@ -80,12 +97,10 @@ body {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 17px;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 16px;
-  /* margin-right: 10px; */
-  /* margin-left: 0.4rem; */
+  font-size: 14px;
 
   font-family: "Roboto", sans-serif;
 }
@@ -103,7 +118,7 @@ body {
   margin: 10.5rem;
   position: relative;
   width: 120vh;
-  margin-left: 18.8rem;
+  margin-left: 14rem;
 }
 
 .todo-form input {
@@ -305,7 +320,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #252525;
+  background-color: #f40606;
   color: rgb(255, 255, 255);
 }
 .btn-primary:hover {

@@ -29,7 +29,7 @@ include('db_conn.php');
 
             </div>
             <div class="container-icon">
-                  <button type="button" class="btn btn-primary position-relative m-3">
+                  <button type="button" class="btn btn-primary position-relative m-3" id="notificationButton">
                         <i class="fa fa-bell" aria-hidden="true"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="counter">
                               <span id="output" class="badge rounded-pill bg-success">
@@ -41,10 +41,10 @@ include('db_conn.php');
 
                                     if ($result->num_rows > 0) {
                                           while ($row = $result->fetch_assoc()) {
-                                                echo  "- Message: " . $row["message"] . "<br>";
+                                                echo   $row["message"] . "<br>";
                                           }
                                     } else {
-                                          echo '0';
+                                          // echo '0';
                                     }
 
                                     // mysqli_close($conn);
@@ -60,6 +60,27 @@ include('db_conn.php');
                   </button>
 
             </div>
+            <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                        const notificationButton = document.getElementById("notificationButton");
+                        const notificationCounter = document.getElementById("counter");
+                        let notificationsVisible = false;
+
+                        // Hide the notifications initially
+                        notificationCounter.style.display = "none";
+
+                        // Add a click event listener to toggle the visibility of notifications
+                        notificationButton.addEventListener("click", function() {
+                              if (notificationsVisible) {
+                                    notificationCounter.style.display = "none";
+                              } else {
+                                    notificationCounter.style.display = "block";
+                              }
+
+                              notificationsVisible = !notificationsVisible;
+                        });
+                  });
+            </script>
       </nav>
 
 

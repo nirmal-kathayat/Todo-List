@@ -53,7 +53,7 @@ if (isset($_POST['action'])) {
 
                   $result = mysqli_query($db, $sql);
                   if ($result) {
-                        $notificationSql = "INSERT INTO notifications (`message`) VALUES ('Created task successfully') ";
+                        $notificationSql = "INSERT INTO notifications (`message`) VALUES ('Created task successfully!') ";
                         $notificationResult = mysqli_query($db, $notificationSql);
                   }
 
@@ -75,22 +75,44 @@ if (isset($_POST['action'])) {
 
                   break;
 
+                  // case 'delete':
+
+                  //       if (empty($_POST['todo'])) {
+                  //             header('Location: todos_web.php?error=Select atleast one todo');
+                  //       }
+
+                  //       $sql = "DELETE FROM todos WHERE id = ('" . $_POST['todo'] . "')";
+
+                  //       $result = mysqli_query($db, $sql);
+
+                  //       if ($result !== false) {
+                  //             echo "<script>confirm('Are you sure to delete?');</script>";
+                  //             // header('Location: todos_web.php?success=Todo Deleted Successfully!');
+                  //             echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
+                  //       }
+                  //       break;
+
             case 'delete':
-
                   if (empty($_POST['todo'])) {
-                        header('Location: todos_web.php?error=Select atleast one todo');
+                        header('Location: todos_web.php?error=Select at least one todo');
+                        exit; // Terminate script execution if there's an error
                   }
 
-                  $sql = "DELETE FROM todos WHERE id = ('" . $_POST['todo'] . "')";
+                  $todoId = $_POST['todo'];
 
-                  $result = mysqli_query($db, $sql);
-
-                  if ($result !== false) {
-                        echo "<script>confirm('Are you sure to delete?');</script>";
-                        // header('Location: todos_web.php?success=Todo Deleted Successfully!');
-                        echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
-                  }
+                  // Display a confirmation dialog using JavaScript
+                  echo "<script>
+            if (confirm('Are you sure you want to delete this todo?')) {
+                // If the user clicks 'OK', proceed with the deletion
+                window.location.href = 'delete_todo.php?id=$todoId';
+            } else {
+                // If the user clicks 'Cancel', go back to the previous page
+                window.location.href = 'todos_web.php';
+            }
+          </script>";
                   break;
+
+
 
             case 'complete':
 
@@ -104,7 +126,7 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-                        echo "<script>alert('Todo Marked Completed!');</script>";
+                        echo "<script>confirm('Todo Marked Completed!');</script>";
                         // header('Location: todos_web.php?success=Todo Marked Completed!');
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }

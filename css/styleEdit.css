@@ -1,4 +1,5 @@
-/* Common styles for all screen sizes */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@900&family=Roboto+Slab&display=swap");
+
 body {
   margin: 0;
   padding: 0;
@@ -9,35 +10,22 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
-.error {
-  color: red;
-  font-size: 1.2rem;
-}
-
-#message {
-  width: 100%;
-}
-
 .navbar {
   background-color: black;
   height: 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .navbar-brand {
   color: white;
   font-size: 2rem;
+  margin-left: 2rem;
 }
 
 .navbar-brand:hover {
-  color: white;
-}
-
-.nav-link {
-  color: white;
-  font-size: 1.5rem;
-}
-
-.nav-link:hover {
   color: white;
 }
 
@@ -46,11 +34,15 @@ body {
   padding: 35px;
   border: 2px solid greenyellow;
   width: 50%;
-  height: 42rem;
-  margin-top: 2.5rem;
+  height: 36rem;
+  margin-top: 7.5rem;
   background-color: greenyellow;
   border-radius: 10px;
   margin-left: 16rem;
+}
+
+#message {
+  width: 100%;
 }
 
 hr {
@@ -70,17 +62,41 @@ label {
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .navbar-brand {
+    margin-left: 1rem;
+  }
   .todo-table {
-    width: 80%;
-    margin-left: 10%;
+    width: 70%;
+    margin-left: 15%;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  .todo-table {
+    width: 80%;
+    margin-left: 10%;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+  }
+  .navbar-brand {
+    margin-left: 1rem;
+  }
   .todo-table {
     width: 90%;
     margin-left: 5%;
     padding: 20px;
+    margin-top: 3rem;
   }
 }
