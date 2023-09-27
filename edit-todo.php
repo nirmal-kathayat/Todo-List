@@ -33,7 +33,7 @@ $data = mysqli_fetch_assoc($result);
       </nav>
 
       <div class="container">
-            <form action="process.php" method="POST">
+            <form action="queryProcess.php" method="POST">
                   <div class="todo-table">
                         <h1>Edit Your Todo</h1>
                         <hr />

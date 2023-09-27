@@ -42,8 +42,7 @@ if (isset($_SESSION['error'])) {
 
 
       <div class="container">
-
-            <form action="process.php" method="POST">
+            <form action="queryProcess.php" method="POST">
                   <div class="todo-table">
 
                         <h1 class="head-class">Welcome!</h1>

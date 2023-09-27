@@ -28,8 +28,3 @@ if (isset($_GET['id'])) {
             exit;
       }
 }
-// } else {
-//       // If the 'id' parameter is missing, you should handle this case too
-//       header('Location: error_page.php');
-//       exit;
-// }

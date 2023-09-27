@@ -2,7 +2,7 @@
 
 
 
-session_start(); // Start the session
+session_start();
 
 include('db_conn.php');
 
@@ -63,7 +63,7 @@ if (isset($_POST['action'])) {
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
-                  // After the INSERT INTO todos query, add the following code to log the action
+                  // After the INSERT INTO todos query
                   if ($result) {
                         $todoId = mysqli_insert_id($db);
                         $title = $_POST['title'];
@@ -75,32 +75,15 @@ if (isset($_POST['action'])) {
 
                   break;
 
-                  // case 'delete':
-
-                  //       if (empty($_POST['todo'])) {
-                  //             header('Location: todos_web.php?error=Select atleast one todo');
-                  //       }
-
-                  //       $sql = "DELETE FROM todos WHERE id = ('" . $_POST['todo'] . "')";
-
-                  //       $result = mysqli_query($db, $sql);
-
-                  //       if ($result !== false) {
-                  //             echo "<script>confirm('Are you sure to delete?');</script>";
-                  //             // header('Location: todos_web.php?success=Todo Deleted Successfully!');
-                  //             echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
-                  //       }
-                  //       break;
-
             case 'delete':
                   if (empty($_POST['todo'])) {
                         header('Location: todos_web.php?error=Select at least one todo');
-                        exit; // Terminate script execution if there's an error
+                        exit;
                   }
 
                   $todoId = $_POST['todo'];
 
-                  // Display a confirmation dialog using JavaScript
+
                   echo "<script>
             if (confirm('Are you sure you want to delete this todo?')) {
                 // If the user clicks 'OK', proceed with the deletion
@@ -126,11 +109,11 @@ if (isset($_POST['action'])) {
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
-                        echo "<script>confirm('Todo Marked Completed!');</script>";
+                        echo "<script>alert('Todo Marked Completed!');</script>";
                         // header('Location: todos_web.php?success=Todo Marked Completed!');
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
-                  // After the UPDATE todos query for marking as complete or pending, add the following code to log the action
+                  // After the UPDATE todos query for marking as complete or pending
                   if ($result !== false) {
                         $todoId = $_POST['todo'];
                         $action = ($_POST['action'] === 'complete') ? 'Complete' : 'Pending';
@@ -177,7 +160,7 @@ if (isset($_POST['action'])) {
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
-                  // After the UPDATE todos query for editing, add the following code to log the action
+                  // After the UPDATE todos query for editing
                   if ($result !== false) {
                         $todoId = $_POST['id'];
                         $title = $_POST['title'];
