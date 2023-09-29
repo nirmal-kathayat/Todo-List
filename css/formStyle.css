@@ -12,7 +12,8 @@
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: 0 20px;
+  margin-left: 26rem;
+  margin-top: 5rem;
 }
 .container .forms {
   display: flex;

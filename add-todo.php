@@ -25,7 +25,7 @@ if (isset($_SESSION['error'])) {
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 
-      <link rel="stylesheet" href="./css/styleProject.css">
+      <link rel="stylesheet" href="./css/projectStyle.css">
 
 </head>
 

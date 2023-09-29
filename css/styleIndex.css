@@ -157,6 +157,18 @@ body {
   font-size: 32px;
   line-height: 37px;
   color: #100e66;
+  margin-bottom: 2rem;
+}
+
+.todo-table h6 {
+  font-size: 1rem;
+  border: 2px solid black;
+  background-color: #0b0a0a;
+  width: 34%;
+  border-radius: 10px;
+  margin-top: -0.5rem;
+  padding: 12px 10px;
+  color: white;
 }
 
 .todo-table small {
@@ -183,9 +195,8 @@ body {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 18px;
-
   color: #ffffff;
   height: 40px;
 }

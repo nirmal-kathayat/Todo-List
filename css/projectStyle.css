@@ -1,9 +1,11 @@
-/* Common styles for all screen sizes */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: LightSeaGreen;
+  background-image: url("https://s.tmimgcdn.com/scr/1200x750/250600/background-wave-water-blue-vector-design-v10_250624-original.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Pacifico", cursive;
   font-family: "Playfair Display", serif;
   font-family: "Roboto Slab", serif;
@@ -19,7 +21,7 @@ body {
 }
 
 .navbar {
-  background-color: black;
+  background-color: #0ea4b4;
   height: 6rem;
   position: fixed;
   top: 0;

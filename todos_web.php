@@ -31,8 +31,7 @@ include('db_conn.php');
             <div class="container-icon">
                   <button type="button" class="btn btn-primary position-relative m-3" id="notificationButton">
                         <i class="fa fa-bell" aria-hidden="true"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                              id="counter">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="counter">
                               <span id="output" class="badge rounded-pill bg-success">
 
                                     <?php
@@ -62,25 +61,25 @@ include('db_conn.php');
 
             </div>
             <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                  const notificationButton = document.getElementById("notificationButton");
-                  const notificationCounter = document.getElementById("counter");
-                  let notificationsVisible = false;
+                  document.addEventListener("DOMContentLoaded", function() {
+                        const notificationButton = document.getElementById("notificationButton");
+                        const notificationCounter = document.getElementById("counter");
+                        let notificationsVisible = false;
 
-                  // Hide the notifications initially
-                  notificationCounter.style.display = "none";
+                        // Hide the notifications initially
+                        notificationCounter.style.display = "none";
 
-                  // Add a click event listener to toggle the visibility of notifications
-                  notificationButton.addEventListener("click", function() {
-                        if (notificationsVisible) {
-                              notificationCounter.style.display = "none";
-                        } else {
-                              notificationCounter.style.display = "block";
-                        }
+                        // Add a click event listener to toggle the visibility of notifications
+                        notificationButton.addEventListener("click", function() {
+                              if (notificationsVisible) {
+                                    notificationCounter.style.display = "none";
+                              } else {
+                                    notificationCounter.style.display = "block";
+                              }
 
-                        notificationsVisible = !notificationsVisible;
+                              notificationsVisible = !notificationsVisible;
+                        });
                   });
-            });
             </script>
       </nav>
 
@@ -116,11 +115,9 @@ include('db_conn.php');
                                     Edit Todo</button>
                               <button name="action" value="delete" class="btn btn-danger"><i class="fa fa-times"></i>
                                     Delete Todo</button>
-                              <button name="action" value="complete" class="btn btn-purple"><i
-                                          class="fa fa-thumbs-up"></i> Mark
+                              <button name="action" value="complete" class="btn btn-purple"><i class="fa fa-thumbs-up"></i> Mark
                                     Complete</button>
-                              <button name="action" value="pending" class="btn btn-orange"><i
-                                          class="fa fa-thumbs-down"></i> Mark
+                              <button name="action" value="pending" class="btn btn-orange"><i class="fa fa-thumbs-down"></i> Mark
                                     Pending</button>
 
                               <a href="todo_history.php" class="history"><i class="fa fa-history"></i> History
@@ -140,18 +137,17 @@ include('db_conn.php');
                                     <?php
                                     foreach ($todos as $todo) {
                                     ?>
-                                    <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
-                                          <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>"
-                                                      id=""></td>
-                                          <td><?php echo $todo[1]; ?></td>
-                                          <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
-                                          </td>
+                                          <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
+                                                <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id=""></td>
+                                                <td><?php echo $todo[1]; ?></td>
+                                                <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
+                                                </td>
 
-                                          <td><?php echo $todo[3]; ?>
+                                                <td><?php echo $todo[3]; ?>
 
-                                          </td>
+                                                </td>
 
-                                    </tr>
+                                          </tr>
                                     <?php } ?>
 
                               </tbody>
