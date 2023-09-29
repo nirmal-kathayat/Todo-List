@@ -53,7 +53,9 @@ if (isset($_POST['action'])) {
 
                   $result = mysqli_query($db, $sql);
                   if ($result) {
-                        $notificationSql = "INSERT INTO notifications (`message`) VALUES ('Created task successfully!') ";
+                        $notification_message = "Todo Added!";
+                        $notification_datetime = $datetime;
+                        $notificationSql = "INSERT INTO notifications (`message`, `datetime`) VALUES ('$notification_message', '$notification_datetime')";
                         $notificationResult = mysqli_query($db, $notificationSql);
                   }
 
@@ -63,7 +65,7 @@ if (isset($_POST['action'])) {
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
-                  // After the INSERT INTO todos query
+                  // After the INSERT INTO todos query history
                   if ($result) {
                         $todoId = mysqli_insert_id($db);
                         $title = $_POST['title'];
@@ -85,46 +87,50 @@ if (isset($_POST['action'])) {
 
 
                   echo "<script>
-            if (confirm('Are you sure you want to delete this todo?')) {
-                // If the user clicks 'OK', proceed with the deletion
-                window.location.href = 'delete_todo.php?id=$todoId';
-            } else {
-                // If the user clicks 'Cancel', go back to the previous page
-                window.location.href = 'todos_web.php';
-            }
-          </script>";
+                        if (confirm('Are you sure you want to delete this todo?')) {
+                            // If the user clicks 'OK', proceed with the deletion
+                            window.location.href = 'delete_todo.php?id=$todoId';
+                        } else {
+                            // If the user clicks 'Cancel', go back to the previous page
+                            window.location.href = 'todos_web.php';
+                        }
+                      </script>";
                   break;
 
 
-
             case 'complete':
-
                   if (empty($_POST['todo'])) {
-
-                        header('Location: todos_web.php?error=Select atleast one todo');
+                        header('Location: todos_web.php?error=Select at least one todo');
                   }
 
-                  $sql = "UPDATE todos SET `status` = 1 WHERE id = ('" . $_POST['todo'] . "')";
+                  // Fetch the title and datetime of the selected todo
+                  $todoId = $_POST['todo'];
+                  $fetchTodoSql = "SELECT title, datetime FROM todos WHERE id = '$todoId'";
+                  $fetchTodoResult = mysqli_query($db, $fetchTodoSql);
 
+                  if ($fetchTodoResult && mysqli_num_rows($fetchTodoResult) > 0) {
+                        $todoData = mysqli_fetch_assoc($fetchTodoResult);
+                        $title = $todoData['title'];
+                        $datetime = $todoData['datetime'];
+                  }
+
+                  $sql = "UPDATE todos SET `status` = 1 WHERE id = ('$todoId')";
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
                         echo "<script>alert('Todo Marked Completed!');</script>";
-                        // header('Location: todos_web.php?success=Todo Marked Completed!');
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
+
                   // After the UPDATE todos query for marking as complete or pending
                   if ($result !== false) {
-                        $todoId = $_POST['todo'];
                         $action = ($_POST['action'] === 'complete') ? 'Complete' : 'Pending';
                         $historySql = "INSERT INTO todo_history (todo_id, title, datetime, action) VALUES ('$todoId', '$title', '$datetime', '$action')";
-                        mysqli_query(
-                              $db,
-                              $historySql
-                        );
+                        mysqli_query($db, $historySql);
                   }
 
                   break;
+
 
             case 'pending':
 
@@ -144,35 +150,65 @@ if (isset($_POST['action'])) {
 
                   break;
 
-            case 'edited':
+                  // history
+            case 'delete_history':
+                  if (isset($_POST['history_id'])) {
+                        $historyId = $_POST['history_id'];
 
+                        // Perform a DELETE query to remove the history entry with the given ID
+                        $deleteHistorySql = "DELETE FROM todo_history WHERE id = '$historyId'";
+                        $deleteHistoryResult = mysqli_query($db, $deleteHistorySql);
+
+                        if ($deleteHistoryResult) {
+                              // Redirect back to the page where you manage history entries
+                              header('Location: todo_history.php?success=History entry deleted successfully');
+                        } else {
+                              // Handle the case where the deletion fails
+                              header('Location: todo_history.php?error=Failed to delete history entry');
+                        }
+                  } else {
+                        // Handle the case where history_id is not set
+                        header('Location: todo_history.php?error=History ID not provided');
+                  }
+                  break;
+
+
+
+            case 'edited':
                   if (empty($_POST['id'])) {
-                        header('Location: todos_web.php?error=Select atleast one todo');
+                        header('Location: todos_web.php?error=Select at least one todo');
                   }
 
-                  $sql = "UPDATE todos SET `title` = '" . $_POST['title'] . "' WHERE id = ('" . $_POST['id'] . "')";
+                  // Fetch the current title and datetime of the todo being edited
+                  $todoId = $_POST['id'];
+                  $fetchTodoSql = "SELECT title, datetime FROM todos WHERE id = '$todoId'";
+                  $fetchTodoResult = mysqli_query($db, $fetchTodoSql);
+
+                  if ($fetchTodoResult && mysqli_num_rows($fetchTodoResult) > 0) {
+                        $todoData = mysqli_fetch_assoc($fetchTodoResult);
+                        $currentTitle = $todoData['title'];
+                        $datetime = $todoData['datetime'];
+                  }
+
+                  $newTitle = $_POST['title'];
+                  $sql = "UPDATE todos SET `title` = '$newTitle' WHERE id = '$todoId'";
 
                   $result = mysqli_query($db, $sql);
 
                   if ($result !== false) {
                         echo "<script>alert('Task is Updated successfully!');</script>";
-                        // header('Location: todos_web.php?success=Todo Updated Successfully!');
                         echo "<script>setTimeout(function(){ window.location.href = 'todos_web.php'; });</script>";
                   }
 
                   // After the UPDATE todos query for editing
                   if ($result !== false) {
-                        $todoId = $_POST['id'];
-                        $title = $_POST['title'];
                         $action = 'Edit';
-                        $historySql = "INSERT INTO todo_history (todo_id, title, action) VALUES ('$todoId', '$title', '$action')";
-                        mysqli_query(
-                              $db,
-                              $historySql
-                        );
+                        $historySql = "INSERT INTO todo_history (todo_id, title, datetime, action) VALUES ('$todoId', '$currentTitle', '$datetime', '$action')";
+                        mysqli_query($db, $historySql);
                   }
 
                   break;
+
 
             case 'edit':
 

@@ -3,10 +3,10 @@ h1 {
 }
 
 table {
-  width: 88%;
+  width: 100%;
   border-collapse: collapse;
-  margin: 80px auto;
-  background-color: #84aeaf;
+  margin: 65px auto;
+  background-color: #0e8754;
 }
 
 th,
@@ -14,14 +14,16 @@ td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #100f0f;
+  font-size: 1.1rem;
+  color: white;
 }
 
 th {
-  background-color: #329092;
+  background-color: #216a6c;
 }
 
 tr:hover {
-  background-color: #a4cad3;
+  background-color: #0b785c;
 }
 
 .navbar {
@@ -53,6 +55,23 @@ tr:hover {
   transition: background-color 0.3s ease;
   margin-right: 100px;
   font-size: 1.1rem;
+}
+
+.btn-delete {
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 5px;
+  width: 5rem;
+  height: 2.4rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.btn-delete:hover {
+  background-color: #e1202d;
+  border: 2px solid red;
 }
 
 /* Hover effect for the button */

@@ -47,6 +47,7 @@ body {
   font-size: 17px;
   margin-top: 2.4rem;
   border-radius: 10px;
+  margin-left: -3rem;
 }
 
 #output {
@@ -118,7 +119,7 @@ body {
   margin: 10.5rem;
   position: relative;
   width: 120vh;
-  margin-left: 14rem;
+  margin-left: 10rem;
 }
 
 .todo-form input {

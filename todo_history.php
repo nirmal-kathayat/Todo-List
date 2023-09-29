@@ -22,7 +22,8 @@ if ($conn->connect_error) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Todo Item History</title>
-      <link rel="stylesheet" href="./css/history.css">
+      <link rel="stylesheet" href="./css/historyStyle.css">
+
 
 </head>
 
@@ -45,6 +46,7 @@ if ($conn->connect_error) {
                   <th>Action</th>
                   <th>Datetime</th>
                   <th>Timestamp</th>
+                  <th>History Status</th>
                   </tr>';
             while ($row = $result->fetch_assoc()) {
                   echo '<tr>';
@@ -53,6 +55,15 @@ if ($conn->connect_error) {
                   echo '<td>' . $row["action"] . '</td>';
                   echo '<td>' . $row["datetime"] . '</td>';
                   echo '<td>' . $row["timestamp"] . '</td>';
+
+                  // dlete button
+                  echo '<td>';
+                  echo '<form method="POST" action="delete_history.php">';
+                  echo '<input type="hidden" name="history_id" value="' . $row["id"] . '">';
+                  echo '<button type="submit" class="btn-delete">Delete</button>';
+                  echo '</form>';
+                  echo '</td>';
+
                   echo '</tr>';
             }
             echo '</table>';

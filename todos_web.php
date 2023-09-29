@@ -16,7 +16,7 @@ include('db_conn.php');
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <link rel="stylesheet" href="./css/styleIndex.css">
+      <link rel="stylesheet" href="./css/indexStyle.css">
 
 </head>
 
@@ -36,12 +36,13 @@ include('db_conn.php');
 
                                     <?php
 
-                                    $sqlNotifications = 'SELECT  message FROM notifications';
+                                    $sqlNotifications = 'SELECT message, datetime FROM notifications ORDER BY datetime DESC LIMIT 5'; // Fetch the latest 5 notifications ordered by datetime
                                     $result = $db->query($sqlNotifications);
 
                                     if ($result->num_rows > 0) {
                                           while ($row = $result->fetch_assoc()) {
-                                                echo   $row["message"] . "<br>";
+                                                // echo   $row["message"] . "<br>";
+                                                echo $row["message"] . " - " . $row["datetime"] . "<br>";
                                           }
                                     } else {
                                           // echo '0';
