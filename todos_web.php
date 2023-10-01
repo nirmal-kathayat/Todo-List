@@ -16,7 +16,8 @@ include('db_conn.php');
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <link rel="stylesheet" href="./css/index_style.css">
+      <link rel="stylesheet" href="./css/styleIndex.css">
+
 
 </head>
 
@@ -139,7 +140,8 @@ include('db_conn.php');
                                     foreach ($todos as $todo) {
                                     ?>
                                           <tr class="<?php echo $todo[2] ? 'complete' : ''; ?>">
-                                                <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id=""></td>
+                                                <td><input type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id="">
+                                                </td>
                                                 <td><?php echo $todo[1]; ?></td>
                                                 <td><?php echo $todo[2] ? 'Complete' : 'Pending'; ?>
                                                 </td>
