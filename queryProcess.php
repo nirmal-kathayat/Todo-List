@@ -150,24 +150,24 @@ if (isset($_POST['action'])) {
 
                   break;
 
-                  // history
+                  // history delete
             case 'delete_history':
                   if (isset($_POST['history_id'])) {
                         $historyId = $_POST['history_id'];
 
-                        // Perform a DELETE query to remove the history entry with the given ID
+
                         $deleteHistorySql = "DELETE FROM todo_history WHERE id = '$historyId'";
                         $deleteHistoryResult = mysqli_query($db, $deleteHistorySql);
 
                         if ($deleteHistoryResult) {
-                              // Redirect back to the page where you manage history entries
+
                               header('Location: todo_history.php?success=History entry deleted successfully');
                         } else {
-                              // Handle the case where the deletion fails
+
                               header('Location: todo_history.php?error=Failed to delete history entry');
                         }
                   } else {
-                        // Handle the case where history_id is not set
+
                         header('Location: todo_history.php?error=History ID not provided');
                   }
                   break;
@@ -179,7 +179,7 @@ if (isset($_POST['action'])) {
                         header('Location: todos_web.php?error=Select at least one todo');
                   }
 
-                  // Fetch the current title and datetime of the todo being edited
+
                   $todoId = $_POST['id'];
                   $fetchTodoSql = "SELECT title, datetime FROM todos WHERE id = '$todoId'";
                   $fetchTodoResult = mysqli_query($db, $fetchTodoSql);

@@ -16,7 +16,7 @@ include('db_conn.php');
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <link rel="stylesheet" href="./css/indexStyle.css">
+      <link rel="stylesheet" href="./css/index_style.css">
 
 </head>
 
